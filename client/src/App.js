@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import ArtistList from "./components/ArtistList";
+import AllArtist from "./components/AllArtist";
 import Artist from "./components/Artist";
 import SignUp from "./components/SignUp";
 import "./App.css";
@@ -13,7 +13,7 @@ class App extends Component {
         <div>
           <GlobalNav />
           <div>
-          <Route exact path="/" component={ArtistList} />
+          <Route exact path="/" component={AllArtist} />
           <Route exact path="/signup" component={SignUp} />
           <Route path="/artist/:id" component={Artist} />
         </div>
