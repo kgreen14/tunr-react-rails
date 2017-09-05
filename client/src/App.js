@@ -1,22 +1,23 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import AllArtist from "./components/AllArtist";
-import Artist from "./components/Artist";
-import SignUp from "./components/SignUp";
-import "./App.css";
-import GlobalNav from "./components/GlobalNav";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import AllArtists from './components/AllArtists';
+import Artist from './components/Artist';
+import SignUp from './components/SignUp';
+import GlobalNav from './components/GlobalNav.js';
+import { setAxiosDefaults } from './util';
 
 class App extends Component {
+  componentWillMount(){
+    setAxiosDefaults()
+  }
   render() {
     return (
       <Router>
         <div>
           <GlobalNav />
-          <div>
-          <Route exact path="/" component={AllArtist} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route path="/artist/:id" component={Artist} />
-        </div>
+          <Route exact path="/" component={AllArtists}/>
+          <Route exact path="/signup" component={SignUp}/>
+          <Route path="/artist/:id" component={Artist}/>
         </div>
       </Router>
     );
